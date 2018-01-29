@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Some <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <p class="navbar-text">
+          Hello, <%= link_to current_user.name, edit_user_registration_path(current_user), class: 'navbar-link' %>
+        </p>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Edit profile', edit_user_registration_path(current_user) %></li>
+              <li><a href="#">View orders</a></li>
+              <li class="divider"></li>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        </ul>
+      <% else %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+        <%= link_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+      <% end %>
+    </ul>
+  </div>
+</nav>
