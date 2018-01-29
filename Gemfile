@@ -7,6 +7,7 @@ end
 
 
 gem 'devise'
+gem 'activeadmin'
 gem 'carrierwave'
 gem 'jquery-rails'
 gem 'mini_magick'
