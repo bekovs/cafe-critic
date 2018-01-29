@@ -1,13 +1,7 @@
-<h1>All places</h1>
-<hr>
-<h3>Select category:
-  <% @categories.each do |category| %>
-    | <%= link_to category.title, categories_show_path(category) %>
-  <% end %>
-</h3>
+<h1><%= @category.title %>'s</h1>
 
 <div class="row">
-  <% @shops.each do |shop| %>
+  <% @category.shops.each do |shop| %>
     <div class="col-xs-6 col-md-3">
       <div class="thumbnail">
         <%= image_tag("medium_default.jpg", size: "280x280") %>
