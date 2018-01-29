@@ -1,3 +1,4 @@
 class Shop < ApplicationRecord
-  belongs_to :rating
+  belongs_to :user
+  belongs_to :category
 end

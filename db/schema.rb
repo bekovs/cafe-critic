@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129064035) do
+ActiveRecord::Schema.define(version: 20180129084150) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -37,12 +37,10 @@ ActiveRecord::Schema.define(version: 20180129064035) do
   create_table "shops", force: :cascade do |t|
     t.string "title"
     t.string "image"
-    t.integer "rating_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.index ["category_id"], name: "index_shops_on_category_id"
-    t.index ["rating_id"], name: "index_shops_on_rating_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,16 +55,12 @@ ActiveRecord::Schema.define(version: 20180129064035) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "name"
-    t.integer "rating_id"
-    t.integer "shop_id"
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["rating_id"], name: "index_users_on_rating_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["shop_id"], name: "index_users_on_shop_id"
   end
 
 end
