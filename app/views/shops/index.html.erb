@@ -13,7 +13,7 @@
       <div class="card border-secondary mb-3">
         <%= image_tag(shop.image.url(:medium)) %>
         <div class="card-header">
-          <h4><%= link_to shop.title.truncate(25, separator: ' '), shop_path(shop) %></h4>
+          <h4><%= link_to shop.title.truncate(20, separator: ' '), shop_path(shop) %></h4>
         </div>
       </div>
     </div>

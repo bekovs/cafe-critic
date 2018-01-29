@@ -9,11 +9,19 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    @shop = Shop.find(params[:id])
+    if user_signed_in?
+      @shop = Shop.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def new
-    @shop = Shop.new
+    if user_signed_in?
+      @shop = Shop.new
+    else
+      redirect_to root_path
+    end
   end
 
 
