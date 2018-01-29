@@ -17,5 +17,6 @@ class Shop < ApplicationRecord
             length: { maximum: 50 }
 
   validates :image, presence: true
+  validates :terms_of_service, acceptance: true
 
 end
