@@ -3,4 +3,11 @@ class Shop < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
+
+
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("content LIKE ?", "%#{search}%")
+  end
+
 end

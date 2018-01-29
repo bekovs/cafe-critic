@@ -2,6 +2,11 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.all
     @categories = Category.all
+    if params[:search]
+      @shops = Shop.search(params[:search]).order("created_at DESC")
+    else
+      @shops = Shop.all.order('created_at DESC')
+    end
   end
 
   def show
