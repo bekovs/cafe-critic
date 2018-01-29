@@ -16,6 +16,7 @@
           <h4><%= link_to shop.title.truncate(20, separator: ' '), shop_path(shop) %></h4>
           <% if shop.reviews.exists? %>
           <h4>Avarage rating: <%= "#{'%.01f' % shop.reviews.average(:rating)}" %></h4>
+          <h5><%= shop.reviews.count %> reviews.</h5>
           <% else %>
           <h4>No rating yet</h4>
           <% end %>
