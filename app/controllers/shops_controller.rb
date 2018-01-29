@@ -1,16 +1,12 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.all
     @categories = Category.all
-    if params[:search]
-      @shops = Shop.search(params[:search]).order("created_at DESC")
-    else
-      @shops = Shop.all.order('created_at DESC')
-    end
+    @shops = Shop.search(params[:search])
   end
 
   def show
     @shop = Shop.find(params[:id])
+    @review_access = @shop.reviews.find_by(:user_id => current_user.id) if user_signed_in?
   end
 
   def edit
@@ -72,7 +68,7 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:title, :image, :user_id, :category_id)
+    params.require(:shop).permit(:title, :image, :user_id, :category_id, :review_id)
   end
 
 end

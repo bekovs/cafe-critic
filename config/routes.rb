@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :shops
+  resources :shops do
+    resources :reviews
+  end
+
   post 'shops/new'
 
   root 'shops#index'

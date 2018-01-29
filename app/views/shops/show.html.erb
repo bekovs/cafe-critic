@@ -1,5 +1,17 @@
+
 <h2><%= @shop.title %></h2>
 
 <hr>
 
 <p><%= image_tag(@shop.image.url(:large)) %></p>
+
+  <div>
+    <ol>
+      <%= render @shop.reviews.order(created_at: :desc) %>
+    </ol>
+<% if user_signed_in? && @review_access.nil? %>
+    <h3>Add a review:</h3>
+    <%= render 'reviews/form' %>
+  </div>
+<% end %>
+
