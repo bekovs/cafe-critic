@@ -10,7 +10,7 @@
   <% @shops.each do |shop| %>
     <div class="col-xs-6 col-md-3">
       <div class="thumbnail">
-        <%= image_tag("medium_default.jpg", size: "280x280") %>
+        <%= image_tag(shop.image.url(:medium)) %>
         <div class="caption">
           <h4><%= link_to shop.title, shop_path(shop) %></h4>
         </div>
