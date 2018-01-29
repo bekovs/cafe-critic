@@ -8,7 +8,7 @@ end
 
 gem 'devise'
 gem 'activeadmin'
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'bootstrap', '~> 4.0.0'

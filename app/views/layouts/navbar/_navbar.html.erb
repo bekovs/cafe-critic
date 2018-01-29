@@ -21,6 +21,9 @@
     </ul>
     <ul class="navbar-nav navbar-right">
       <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "New Shop", new_shop_path %>
+      </li>
         <ul class="nav navbar-nav">
           <li class="dropdown">
             Hello
