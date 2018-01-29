@@ -3,7 +3,7 @@ class Shop < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def self.search(search)
     if search
