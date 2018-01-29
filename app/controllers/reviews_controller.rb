@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @review = @shop.reviews.create(review_params)
 
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to @shop }
       format.js { }
     end
   end
