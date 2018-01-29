@@ -14,6 +14,7 @@
         <%= image_tag(shop.image.url(:medium)) %>
         <div class="card-header">
           <h4><%= link_to shop.title.truncate(20, separator: ' '), shop_path(shop) %></h4>
+          <h4>Avarage rating: <%= "#{'%.01f' % shop.reviews.average(:rating)}" %></h4>
         </div>
       </div>
     </div>
