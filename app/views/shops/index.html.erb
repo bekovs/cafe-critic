@@ -5,16 +5,18 @@
     | <%= link_to category.title, categories_show_path(category) %>
   <% end %>
 </h3>
+<br>
 
 <div class="row">
   <% @shops.each do |shop| %>
     <div class="col-xs-6 col-md-3">
-      <div class="thumbnail">
+      <div class="card border-secondary mb-3">
         <%= image_tag(shop.image.url(:medium)) %>
-        <div class="caption">
-          <h4><%= link_to shop.title, shop_path(shop) %></h4>
+        <div class="card-header">
+          <h4><%= link_to shop.title.truncate(25, separator: ' '), shop_path(shop) %></h4>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
